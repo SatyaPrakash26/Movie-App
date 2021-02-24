@@ -19,7 +19,7 @@ closeBtn.addEventListener('click',()=>{
 // get the list of movies
 function getMoviesList(){
     let SearchInput = document.getElementById('movie-search').value;
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${SearchInput}`)
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${SearchInput}`)
     .then((Response)=> Response.json())
     .then((data)=>{
         console.log(data.Search);
@@ -55,7 +55,7 @@ function getMovieDetails(e){
     e.preventDefault();
     if(e.target.classList.contains('info-btn')){
         let movieItem = e.target.parentElement.parentElement;
-        fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${movieItem.dataset.id}`)
+        fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movieItem.dataset.id}`)
         .then((response)=>response.json())
         .then((data)=>{
             console.log(data);
@@ -83,7 +83,7 @@ function getMovieDetails(e){
                         </ul>
                     </div> 
                     <div class="link"> 
-                    <a href="http://imdb.com/title/${data.imdbID}" target="_blank">get imdb</a>
+                    <a href="https://imdb.com/title/${data.imdbID}" target="_blank">get imdb</a>
                     </div>
             `;
             movieDetailsContent.innerHTML = output;
